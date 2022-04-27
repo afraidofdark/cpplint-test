@@ -19,6 +19,9 @@ namespace ToolKit
     char format[4];
   };
 
+
+
+
   /*
   * Struct to hold fmt subchunk data for WAVE files.
   */
