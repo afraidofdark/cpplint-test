@@ -1,8 +1,3 @@
-# GitHub Action that enables a repo to achieve gradual compliance with cpplint by
-#     linting only those files that have been added or modified (vs. origin/master).
-# 1. runs cpplint only on those files that have been modified vs. origin/master.
-# 2. compiles with g++ only those files that have been modified vs. origin/master.
-# 3. other optional filepath verifications may be commented out at the end of this file.
 # From: https://github.com/cpplint/GitHub-Action-for-cpplint
 
 name: cpplint_modified_files
@@ -36,4 +31,4 @@ jobs:
             sys.exit(0)
 
           print("cpplint:")
-          subprocess.run(["cpplint", "--filter=-legal/copyright,+build/c++14,-build/header_guard,+build/pragma_once,-whitespace/braces,-whitespace/newline,-whitespace/parens,-runtime/indentation_namespace,-build/include_subdir"] + cpp_files, check=True, text=True)
+          subprocess.run(["cpplint", "--filter=-legal/copyright,+build/c++14,-build/header_guard,+build/pragma_once,-whitespace/braces,-whitespace/newline,-whitespace/parens,-runtime/indentation_namespace,-build/include_subdir,-runtime/references"] + cpp_files, check=True, text=True)
