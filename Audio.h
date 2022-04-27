@@ -9,7 +9,7 @@ namespace ToolKit
 
   class TK_API Audio : public Resource
   {
-  public:
+  public: 
     TKResouceType(Audio)
 
     Audio();
