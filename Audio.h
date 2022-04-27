@@ -12,11 +12,10 @@ namespace ToolKit
   public: 
     TKResouceType(Audio)
 	
-	
-
     Audio();
     Audio(String file);
     ~Audio();
+
 
     virtual void Init(bool flushClientSideArray = true) override;
     virtual void Load() override;
