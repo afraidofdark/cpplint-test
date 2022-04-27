@@ -18,9 +18,6 @@ namespace ToolKit
   Animation::Animation()
   {
   }
-  
-  
-  
 
   Animation::Animation(const String& file)
     : Animation()
