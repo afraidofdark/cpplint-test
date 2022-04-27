@@ -19,8 +19,6 @@ namespace ToolKit
   {
   }
 
-
-
   Animation::Animation(const String& file)
     : Animation()
   {
@@ -31,6 +29,7 @@ namespace ToolKit
   {
     UnInit();
   }
+
 
   void Animation::GetCurrentPose(Node* node)
   {
