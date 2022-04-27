@@ -12,8 +12,6 @@ namespace ToolKit
   public: 
     TKResouceType(Audio)
 	
-	
-
     Audio();
     Audio(String file);
     ~Audio();
@@ -24,6 +22,7 @@ namespace ToolKit
 
   public:
     uint m_buffer;
+	
   };
 
   class TK_API AudioManager : public ResourceManager
