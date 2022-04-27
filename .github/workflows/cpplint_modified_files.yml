@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 2
+          fetch-depth: 0
       - uses: actions/setup-python@v2
       - shell: python  # Show the version of shell: python and then upgrade shell: python to Python 3.8
         run: import sys ; print("Python {}.{}.{}".format(*sys.version_info))  # Legacy Python :-(
