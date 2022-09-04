@@ -649,7 +649,7 @@ namespace ToolKit
           ReadAttr(wndNode, "type", type);
 
           Window* wnd = nullptr;
-          switch ((Window::Type)type)
+          switch ((Window::Type) type)
           {
           case Window::Type::Viewport:
             wnd = new EditorViewport(wndNode);
