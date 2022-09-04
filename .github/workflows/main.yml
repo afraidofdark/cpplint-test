@@ -8,8 +8,8 @@ jobs:
       matrix:
         path:
           - check: './'
-            exclude: '(DontCheckHere|world)' # Exclude file paths containing "hello" or "world"
-          - check: 'examples'
+            exclude: '(DontCheckHere|CheckHere)' # Exclude file paths containing "hello" or "world"
+          - check: './CheckHere'
             exclude: ''              # Nothing to exclude
     steps:
     - uses: actions/checkout@v2
