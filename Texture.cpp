@@ -11,7 +11,7 @@ namespace ToolKit
 {
 
   Texture::Texture(bool floatFormat)
-  {
+						{
     m_floatFormat = floatFormat;
     m_textureId   = 0;
   }
