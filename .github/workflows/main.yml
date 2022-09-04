@@ -1,22 +1,24 @@
-name: clang-format Check
-on: [push, pull_request]
+name: Run clang-format Linter
+
+on: [push]
+
 jobs:
-  formatting-check:
-    name: Formatting Check
+  build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        path:
-          - check: './'
-            exclude: '(DontCheckHere|CheckHere)' # Exclude file paths containing "hello" or "world"
-          - check: './CheckHere'
-            exclude: ''              # Nothing to exclude
+
     steps:
     - uses: actions/checkout@v2
-    - name: Run clang-format style check for C/C++/Protobuf programs.
-      uses: jidicula/clang-format-action@v4.8.0
+    - uses: DoozyX/clang-format-lint-action@v0.14
       with:
-        clang-format-version: '14'
-        check-path: ${{ matrix.path['check'] }}
-        exclude-regex: ${{ matrix.path['exclude'] }}
-        fallback-style: 'Microsoft' # optional
+        source: '.'
+        exclude: './CheckHere/DontCheckHere'
+        extensions: 'h,cpp,c'
+        clangFormatVersion: 14
+        inplace: True
+    - uses: EndBug/add-and-commit@v4
+      with:
+        author_name: Clang Robot
+        author_email: robot@example.com
+        message: 'Committing clang-format changes'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
