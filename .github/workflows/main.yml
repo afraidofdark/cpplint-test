@@ -1,24 +1,30 @@
-name: Run clang-format Linter
+name: "format code"
 
-on: [push]
+# run on pull requests to develop
+on:
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  build:
+  format:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    - uses: DoozyX/clang-format-lint-action@v0.14
-      with:
-        source: '.'
-        exclude: './CheckHere/DontCheckHere'
-        extensions: 'h,cpp,c'
-        clangFormatVersion: 14
-        inplace: True
-    - uses: EndBug/add-and-commit@v4
-      with:
-        author_name: Clang Robot
-        author_email: robot@example.com
-        message: 'Committing clang-format changes'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v2
+        with:
+          # check out HEAD on the branch
+          ref: ${{ github.head_ref }}
+          # make sure the parent commit is grabbed as well, because
+          # that's what will get formatted (i.e. the most recent commit)
+          fetch-depth: 2
+      # format the latest commit
+      - uses: purduesigbots/clang-format-action@1
+        # use one of clang-format's supported styles or leave this out to use the style in your .clang-format file
+        with:
+          style: file
+      # commit the changes (if there are any)
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4.1.2
+        with:
+          commit_message: 🎨 apply clang-format changes
+          branch: ${{ github.head_ref }}
