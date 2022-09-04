@@ -18,7 +18,7 @@ namespace ToolKit
 							
     m_floatFormat = floatFormat;
     m_textureId   = 0;
-  }
+			}			
 
   Texture::Texture(String file, bool floatFormat) : Texture(floatFormat)
   {
