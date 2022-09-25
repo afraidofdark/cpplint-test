@@ -22,9 +22,9 @@ jobs:
         check-path: ${{ matrix.path['check'] }}
         exclude-regex: ${{ matrix.path['exclude'] }}
         fallback-style: 'Microsoft' # optional
-  # commit the changes
-  - name: Commit changes
-    uses: stefanzweifel/git-auto-commit-action@v4.1.2
-    with:
-      commit_message: 🎨 apply clang-format changes
-      branch: ${{ github.head_ref }}
+    # commit the changes
+    - name: Commit changes
+      uses: stefanzweifel/git-auto-commit-action@v4.1.2
+      with:
+        commit_message: apply clang-format changes
+        branch: ${{ github.head_ref }}
