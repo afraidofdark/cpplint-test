@@ -14,8 +14,12 @@
 namespace ToolKit
 {
 
-  Animation::Animation()
-  {
+  Animation::Animation() 
+  
+  
+  {  
+     int x = 3;
+	             3 + 1;
   }
 
   Animation::Animation(const String& file) : Animation()
